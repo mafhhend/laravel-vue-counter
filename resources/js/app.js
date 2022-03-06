@@ -1,17 +1,14 @@
-import { createApp } from "vue";
+import { createApp, ref } from "vue";
 
-const app=createApp({
-    data(){
-        return{
-            count:0
-        }
+const app = createApp({
+    setup() {
+        let count = ref(0);
+        const increment = () => this.count++;
+        return {
+            count,
+            increment,
+        };
     },
-    methods:{
-        increment(){
-            this.count++;
-        }
-    }
-})
+});
 
 app.mount("#app");
-
